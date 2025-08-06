@@ -944,7 +944,7 @@ static void adreno_of_get_ca_aware_properties(struct adreno_device *adreno_dev,
 	if (pwrscale->ctxt_aware_enable) {
 		if (of_property_read_u32(parent, "qcom,ca-busy-penalty",
 			&pwrscale->ctxt_aware_busy_penalty))
-			pwrscale->ctxt_aware_busy_penalty = 12000;
+			pwrscale->ctxt_aware_busy_penalty = 8000;
 
 		node = of_find_node_by_name(parent, "qcom,gpu-pwrlevel-bins");
 		if (node == NULL) {
