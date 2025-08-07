@@ -175,24 +175,14 @@ static void a5xx_platform_setup(struct adreno_device *adreno_dev)
 	struct adreno_gpudev *gpudev = ADRENO_GPU_DEVICE(adreno_dev);
 
 	if (adreno_is_a504_to_a506(adreno_dev) || adreno_is_a508(adreno_dev)) {
-		gpudev->snapshot_data->sect_sizes->cp_meq = 32;
-		gpudev->snapshot_data->sect_sizes->cp_merciu = 1024;
-		gpudev->snapshot_data->sect_sizes->roq = 256;
-
 		/* A505 & A506 having 3 XIN ports in VBIF */
 		gpudev->vbif_xin_halt_ctrl0_mask =
 				A510_VBIF_XIN_HALT_CTRL0_MASK;
 	} else if (adreno_is_a510(adreno_dev)) {
-		gpudev->snapshot_data->sect_sizes->cp_meq = 32;
-		gpudev->snapshot_data->sect_sizes->cp_merciu = 32;
-		gpudev->snapshot_data->sect_sizes->roq = 256;
-
 		/* A510 has 3 XIN ports in VBIF */
 		gpudev->vbif_xin_halt_ctrl0_mask =
 				A510_VBIF_XIN_HALT_CTRL0_MASK;
-	} else if (adreno_is_a540(adreno_dev) ||
-		adreno_is_a512(adreno_dev)) {
-		gpudev->snapshot_data->sect_sizes->cp_merciu = 1024;
+	} else if (adreno_is_a540(adreno_dev) || adreno_is_a512(adreno_dev)) {
 	}
 
 	/* Calculate SP local and private mem addresses */
