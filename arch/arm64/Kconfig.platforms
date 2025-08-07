@@ -361,4 +361,9 @@ config MACH_XIAOMI_VINCE
 	  Support for the Xiaomi Redmi 5 Plus platform
 	  which is based on QCOM MSM8953 chipset.
 
+config ARCH_HAS_SET_MEMORY
+	bool  "SET MEMORY"
+	help
+	  This enables support for set memory
+
 endmenu
