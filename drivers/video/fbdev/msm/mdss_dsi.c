@@ -44,6 +44,12 @@
 #include "mdss_dsi_phy.h"
 #include "mdss_dba_utils.h"
 
+#ifdef CONFIG_MACH_XIAOMI_YSL
+bool synaptics_gesture_func_on_lansi = true;
+bool synaptics_gesture_func_on = true;
+bool NVT_gesture_func_on = true;
+#endif
+
 #define XO_CLK_RATE	19200000
 #define CMDLINE_DSI_CTL_NUM_STRING_LEN 2
 
