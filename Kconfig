@@ -10,8 +10,6 @@ config SRCARCH
 
 source "arch/$SRCARCH/Kconfig"
 
-source "techpack/Kconfig"
-
 config KSU_STATIC_HOOKS
 	bool "KernelSU: Force to use static hooks"
 	default n
