@@ -17,9 +17,6 @@
 #include "msm_sd.h"
 #include "msm_ois.h"
 #include "msm_cci.h"
-#if IS_ENABLED(CONFIG_MACH_XIAOMI_MSM8937)
-#include <xiaomi-msm8937/mach.h>
-#endif
 
 DEFINE_MSM_MUTEX(msm_ois_mutex);
 /*#define MSM_OIS_DEBUG*/
@@ -73,11 +70,6 @@ static int32_t msm_ois_download(struct msm_ois_ctrl_t *o_ctrl)
 	char name_coeff[MAX_SENSOR_NAME] = {0};
 	struct device *dev = &(o_ctrl->pdev->dev);
 	enum msm_camera_i2c_reg_addr_type save_addr_type;
-
-#if IS_ENABLED(CONFIG_MACH_FAMILY_XIAOMI_ULYSSE)
-	if (xiaomi_msm8937_mach_get_family() == XIAOMI_MSM8937_MACH_FAMILY_ULYSSE)
-		return 0;
-#endif
 
 	CDBG("Enter\n");
 	save_addr_type = o_ctrl->i2c_client.addr_type;
@@ -546,15 +538,6 @@ static int32_t msm_ois_config(struct msm_ois_ctrl_t *o_ctrl,
 			break;
 		}
 
-#if IS_ENABLED(CONFIG_MACH_FAMILY_XIAOMI_ULYSSE)
-		if (xiaomi_msm8937_mach_get_family() == XIAOMI_MSM8937_MACH_FAMILY_ULYSSE) {
-			if (!conf_array.size) {
-				pr_err("%s:%d failed\n", __func__, __LINE__);
-				rc = -EFAULT;
-				break;
-			}
-		} else
-#endif
 		if (!conf_array.size ||
 			conf_array.size > I2C_SEQ_REG_DATA_MAX) {
 			pr_err("%s:%d failed\n", __func__, __LINE__);
@@ -1019,10 +1002,6 @@ static int32_t msm_ois_platform_probe(struct platform_device *pdev)
 			pr_err("ERR:%s: Error in reading OIS pinctrl\n",
 				__func__);
 			msm_ois_t->cam_pinctrl_status = 0;
-#if IS_ENABLED(CONFIG_MACH_FAMILY_XIAOMI_ULYSSE)
-			if (xiaomi_msm8937_mach_get_family() == XIAOMI_MSM8937_MACH_FAMILY_ULYSSE)
-				rc = 0;
-#endif
 		}
 	}
 
