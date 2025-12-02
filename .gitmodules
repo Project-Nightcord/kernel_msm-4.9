@@ -2,3 +2,7 @@
 	path = techpack/xiaomi-titanium
 	url = https://github.com/Project-Nightcord/techpack_xiaomi-titanium
 	branch = nightcord/unified
+[submodule "techpack/audio-legacy"]
+	path = techpack/audio-legacy
+	url = https://github.com/Project-Nightcord/kernel_techpack_audio-legacy
+	branch = audio-4.9
