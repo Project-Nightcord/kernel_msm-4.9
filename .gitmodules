@@ -6,3 +6,7 @@
 	path = techpack/audio-legacy
 	url = https://github.com/Project-Nightcord/kernel_techpack_audio-legacy
 	branch = audio-4.9
+[submodule "drivers/staging/prima"]
+	path = drivers/staging/prima
+	url = https://github.com/Project-Nightcord/vendor_qcom_opensource_wlan_prima
+	branch = wlan/LA.UM.9.6.4/mithorium/master
