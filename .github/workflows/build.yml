@@ -26,15 +26,16 @@ jobs:
             gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi \
             gcc-arm-linux-gnueabihf python3 aria2 cpio
 
-      - name: Clone Clang AOSP 17
+      - name: Clone AOSP Clang 20
         run: |
           mkdir -p prebuilts/clang/host/linux-x86
-          git clone --depth=1 https://gitlab.com/nekoprjkt/aosp-clang -b 17 prebuilts/clang/host/linux-x86/clang-aosp
+          git clone --depth=1 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b main prebuilts/clang/host/linux-x86/clang-r547379
 
+      # 4. Set environment variables
       - name: Export build vars
         run: |
           export KERNEL_DIR=$PWD
-          export CLANG_PATH=$PWD/prebuilts/clang/host/linux-x86/clang-aosp/bin
+          export CLANG_PATH=$PWD/prebuilts/clang/host/linux-x86/clang-r547379/bin
           echo "PATH=$CLANG_PATH:/usr/bin:$PATH" >> $GITHUB_ENV
           echo "KERNEL_DIR=$KERNEL_DIR" >> $GITHUB_ENV
 
