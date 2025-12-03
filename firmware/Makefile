@@ -26,6 +26,7 @@ fw-shipped- += acenic/tg1.bin
 else
 acenic-objs := acenic/tg1.bin acenic/tg2.bin
 endif
+fw-shipped-$(CONFIG_TOUCHSCREEN_SYNAPTICS_DSX_FW_UPDATE) += synaptics/startup_fw_update_e7.img
 fw-shipped-$(CONFIG_TOUCHSCREEN_TD4310_LANSI_E7) += synaptics/startup_fw_update_lansi.img
 fw-shipped-$(CONFIG_ACENIC) += $(acenic-objs)
 fw-shipped-$(CONFIG_ADAPTEC_STARFIRE) += adaptec/starfire_rx.bin \
