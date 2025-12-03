@@ -29,7 +29,7 @@ jobs:
       - name: Clone AOSP Clang 20
         run: |
           mkdir -p prebuilts/clang/host/linux-x86
-          git clone --depth=1 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b main prebuilts/clang/host/linux-x86/clang-r547379
+          git clone --depth=1 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b main prebuilts/clang/host/linux-x86
 
       # 4. Set environment variables
       - name: Export build vars
