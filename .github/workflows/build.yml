@@ -29,7 +29,7 @@ jobs:
       - name: Clone AOSP Clang 20
         run: |
           mkdir -p prebuilts/clang/host/linux-x86/clang-r547379
-          wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz
+          aria2c -x 32 -s 32 -k 1M https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz
           tar -xzf clang-r547379.tar.gz -C prebuilts/clang/host/linux-x86/clang-r547379
 
       # 4. Set environment variables
