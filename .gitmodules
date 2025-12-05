@@ -6,3 +6,7 @@
 	path = drivers/staging/prima
 	url = https://github.com/Project-Nightcord/vendor_qcom_opensource_wlan_prima
 	branch = wlan/LA.UM.9.6.4/mithorium/master
+[submodule "techpack/xiaomi-titanium"]
+	path = techpack/xiaomi-titanium
+	url = https://github.com/Project-Nightcord/techpack_xiaomi-titanium
+	branch = nightcord/unified
